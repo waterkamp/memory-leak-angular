@@ -15,6 +15,10 @@ export class HomeComponent implements OnInit, OnDestroy {
     console.log('OnInit home');
 
     this.testService.broadcaster$.subscribe(message => console.log('broadcast message recieved in home', message));
+
+    /*     window.setInterval(() => {
+          console.log('hello oliver', new Date());
+        }, 1000) */
   }
 
   ngOnDestroy(): void {
