@@ -4,7 +4,7 @@ import { TestService } from 'src/app/services/test.service';
 @Component({
   selector: 'app-details',
   templateUrl: './details.component.html',
-  styleUrls: ['./details.component.scss']
+  styleUrls: ['./details.component.scss'],
 })
 export class DetailsComponent implements OnInit, OnDestroy {
   constructor(private testService: TestService) {
@@ -14,7 +14,9 @@ export class DetailsComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     console.log('OnInit details');
 
-    this.testService.broadcaster$.subscribe(message => console.log('broadcast message recieved in details', message));
+    this.testService.broadcaster$.subscribe((message) =>
+      console.log('broadcast message received in details', message)
+    );
   }
 
   ngOnDestroy(): void {
@@ -22,6 +24,6 @@ export class DetailsComponent implements OnInit, OnDestroy {
   }
 
   public sendMessage() {
-    this.testService.broadcaster$.next('Hello Folks!');
+    this.testService.broadcaster$.next('Hello I am the detail-page!');
   }
 }

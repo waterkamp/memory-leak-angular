@@ -4,7 +4,7 @@ import { TestService } from 'src/app/services/test.service';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit, OnDestroy {
   constructor(private testService: TestService) {
@@ -14,11 +14,13 @@ export class HomeComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     console.log('OnInit home');
 
-    this.testService.broadcaster$.subscribe(message => console.log('broadcast message recieved in home', message));
+    this.testService.broadcaster$.subscribe((message) =>
+      console.log('broadcast message received in home', message)
+    );
 
     window.setInterval(() => {
-      console.log('hello oliver', new Date());
-    }, 1000)
+      console.log('Home-interval function invoked!', new Date());
+    }, 1000);
   }
 
   ngOnDestroy(): void {
